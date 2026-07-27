@@ -1,0 +1,19 @@
+<!-- ! + Enter -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Including JS</title>
+    </head>
+    <body>
+        <div id="root" class="introduction"></div>
+
+        <!-- for event handling we can include javascript inline -->
+        <button onclick="alert( 'Hello!' )">Click me</button>
+
+        <script type="module">
+            import './01-index.js';
+        </script>
+    </body>
+</html>
