@@ -1,0 +1,362 @@
+[
+    {
+        "id": 1,
+        "name": "Angular JS Bootcamp",
+        "category": "frontend",
+        "description": "<p><strong>AngularJS</strong> (also written as <strong>Angular.js</strong>) is a JavaScript-based open-source front-end web application framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications.</p><p>It aims to simplify both the development and the testing of such applications by providing a framework for client-side model–view–controller (MVC) and model–view–viewmodel (MVVM) architectures, along with components commonly used in rich Internet applications. (This flexibility has led to the acronym MVW, which stands for \"model-view-whatever\" and may also encompass model–view–presenter and model–view–adapter.)</p>",
+        "startDate": "2019-01-01T04:00:00.000Z",
+        "endDate": "2019-01-03T08:00:00.000Z",
+        "startTime": {
+            "hours": 9,
+            "minutes": 30
+        },
+        "endTime": {
+            "hours": 13,
+            "minutes": 30
+        },
+        "speakers": [
+            "John Doe",
+            "Jane Doe"
+        ],
+        "location": {
+            "address": "Tata Elxsi, Prestige Shantiniketan",
+            "city": "Bangalore",
+            "state": "Karnataka"
+        },
+        "modes": {
+            "inPerson": true,
+            "online": false
+        },
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/2000px-AngularJS_logo.svg.png"
+    },
+    {
+        "id": 2,
+        "name": "React JS Masterclass",
+        "category": "frontend",
+        "description": "<p><strong>React</strong> (also known as <strong>React.js</strong> or <strong>ReactJS</strong>) is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.</p><p>React can be used as a base in the development of single-page or mobile applications. Complex React applications usually require the use of additional libraries for state management, routing, and interaction with an API.</p>",
+        "startDate": "2019-01-14T04:30:00.000Z",
+        "endDate": "2019-01-16T12:30:00.000Z",
+        "startTime": {
+            "hours": 10,
+            "minutes": 0
+        },
+        "endTime": {
+            "hours": 18,
+            "minutes": 0
+        },
+        "speakers": [
+            "John Doe",
+            "Jane Doe"
+        ],
+        "location": {
+            "address": "Tata Elxsi, IT Park",
+            "city": "Trivandrum",
+            "state": "Kerala"
+        },
+        "modes": {
+            "inPerson": true,
+            "online": true
+        },
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/640px-React-icon.svg.png"
+    },
+    {
+        "id": 3,
+        "name": "Crash course in MongoDB",
+        "category": "database",
+        "description": "<p><strong>MongoDB</strong> is a cross-platform document-oriented database program. It is issued under the Server Side Public License (SSPL) version 1, which was submitted for certification to the Open Source Initiative but later withdrawn in lieu of SSPL version 2. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemata. MongoDB is developed by MongoDB Inc.</p><p>MongoDB supports field, range query, and regular expression searches. Queries can return specific fields of documents and also include user-defined JavaScript functions. Queries can also be configured to return a random sample of results of a given size.</p>",
+        "startDate": "2019-01-20T07:00:00.000Z",
+        "endDate": "2019-01-22T11:00:00.000Z",
+        "startTime": {
+            "hours": 12,
+            "minutes": 30
+        },
+        "endTime": {
+            "hours": 16,
+            "minutes": 30
+        },
+        "speakers": [
+            "Mark Smith",
+            "Mary Smith"
+        ],
+        "location": {
+            "address": "HCL, Electronic City Phase 1",
+            "city": "Bangalore",
+            "state": "Karnataka"
+        },
+        "modes": {
+            "inPerson": false,
+            "online": true
+        },
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/32/Mongo-db-logo.png"
+    },
+    {
+        "id": 4,
+        "name": "Mastering Node JS and Express",
+        "category": "backend",
+        "description": "<p><strong>Node.js</strong> is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser. Typically, JavaScript is used primarily for client-side scripting, in which scripts written in JavaScript are embedded in a webpage's HTML and run client-side by a JavaScript engine in the user's web browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting - running scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. Consequently, Node.js represents a \"JavaScript everywhere\" paradigm, unifying web application development around a single programming language, rather than different languages for server side and client side scripts.</p><p>The Node.js distributed development project, governed by the Node.js Foundation, is facilitated by the Linux Foundation's Collaborative Projects program.</p>",
+        "startDate": "2019-10-20T07:00:00.000Z",
+        "endDate": "2019-10-22T07:00:00.000Z",
+        "startTime": {
+            "hours": 9,
+            "minutes": 45
+        },
+        "endTime": {
+            "hours": 17,
+            "minutes": 45
+        },
+        "speakers": [
+            "Mark Smith",
+            "Mary Smith"
+        ],
+        "location": {
+            "address": "Harman Connected Services\nITPL, Whitefield",
+            "city": "Bangalore",
+            "state": "Karnataka"
+        },
+        "modes": {
+            "inPerson": true,
+            "online": true
+        },
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1024px-Node.js_logo.svg.png"
+    },
+    {
+        "id": 5,
+        "name": "HTML and CSS",
+        "category": "frontend",
+        "description": "HTML and CSS introduction",
+        "startDate": "2019-11-05T07:00:00.000Z",
+        "endDate": "2019-11-06T07:00:00.000Z",
+        "startTime": {
+            "hours": 9,
+            "minutes": 0
+        },
+        "endTime": {
+            "hours": 17,
+            "minutes": 0
+        },
+        "speakers": [
+            "John Doe",
+            "Jane Doe"
+        ],
+        "location": {
+            "address": "Zenmonics",
+            "city": "Bangalore",
+            "state": "Karnataka"
+        },
+        "modes": {
+            "inPerson": true,
+            "online": false
+        },
+        "imageUrl": "https://en.wikipedia.org/wiki/HTML5#/media/File:HTML5_logo_and_wordmark.svg"
+    },
+    {
+        "id": 6,
+        "name": "TypeScript",
+        "category": "language",
+        "description": "TypeScript language fundamentals",
+        "startDate": "2019-06-24",
+        "endDate": "2019-06-24",
+        "startTime": {
+            "hours": 9,
+            "minutes": 0
+        },
+        "endTime": {
+            "hours": 17,
+            "minutes": 0
+        },
+        "speakers": [
+            "Mark Smith",
+            "Mary Smith"
+        ],
+        "location": {
+            "address": "Zenmonics",
+            "city": "Bangalore",
+            "state": "Karnataka"
+        },
+        "modes": {
+            "inPerson": true,
+            "online": false
+        },
+        "imageUrl": "https://raw.githubusercontent.com/remojansen/logo.ts/master/ts.png"
+    },
+    {
+        "id": 7,
+        "name": "Angular",
+        "category": "frontend",
+        "description": "<p>Google's <strong>Angular</strong> framework, is a much sought-after skill in the industry today. It is a single-page application (SPA) framework that includes most of the features required to build SPA applications. The Angular training gets you prepared for building enterprise-grade applications using the latest version of Angular.</p>",
+        "startDate": "2019-11-01T04:00:00.000Z",
+        "endDate": "2019-11-03T08:00:00.000Z",
+        "startTime": {
+            "hours": 9,
+            "minutes": 30
+        },
+        "endTime": {
+            "hours": 13,
+            "minutes": 30
+        },
+        "speakers": [
+            "John Doe",
+            "Jane Doe"
+        ],
+        "location": {
+            "address": "Tata Elxsi, Prestige Shantiniketan",
+            "city": "Bangalore",
+            "state": "Karnataka"
+        },
+        "modes": {
+            "inPerson": true,
+            "online": true
+        },
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/512px-Angular_full_color_logo.svg.png"
+    },
+    {
+        "id": 8,
+        "name": "Migrating from Angular JS to Angular",
+        "category": "frontend",
+        "description": "<p>Google's <strong>Angular</strong> framework, is a much sought-after skill in the industry today. <strong>Angular JS</strong> is the first version of this framework. Angular (the name for the framework since version 2) is a ground-up rewrite of Angular JS.</p><p>Migration from Angular JS to Angular is not a straightforward task. This training prepares you for migration of existing Angular JS to the latest version of Angular.</p>",
+        "startDate": "2019-12-01T04:00:00.000Z",
+        "endDate": "2019-12-03T08:00:00.000Z",
+        "startTime": {
+            "hours": 9,
+            "minutes": 30
+        },
+        "endTime": {
+            "hours": 13,
+            "minutes": 30
+        },
+        "speakers": [
+            "Mark Smith",
+            "Mary Smith"
+        ],
+        "location": {
+            "address": "Tata Elxsi, Prestige Shantiniketan",
+            "city": "Bangalore",
+            "state": "Karnataka"
+        },
+        "modes": {
+            "inPerson": true,
+            "online": true
+        },
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/512px-Angular_full_color_logo.svg.png"
+    },
+    {
+        "id": 9,
+        "name": "Bootstrap Bootcamp",
+        "category": "frontend",
+        "description": "<p><strong>Bootstrap</strong> is a front-end web framework that provides useful styles and components for creating responsive web pages quickly. Bootstrap v4 is the latest stable version of this framework and is covered in this bootcamp.</p>",
+        "startDate": "2019-12-12T04:00:00.000Z",
+        "endDate": "2019-12-14T08:00:00.000Z",
+        "startTime": {
+            "hours": 9,
+            "minutes": 0
+        },
+        "endTime": {
+            "hours": 17,
+            "minutes": 0
+        },
+        "speakers": [
+            "Jane Doe",
+            "Mark Smith"
+        ],
+        "location": {
+            "address": "SAP Labs, Whitefield",
+            "city": "Bangalore",
+            "state": "Karnataka"
+        },
+        "modes": {
+            "inPerson": true,
+            "online": false
+        },
+        "imageUrl": "https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg"
+    },
+    {
+        "id": 10,
+        "name": "Apache Cordova",
+        "category": "mobile",
+        "description": "<p>Developing a mobile app requires extensive knowledge of native programming techniques for multiple platforms. <strong>Apache Cordova</strong> lets you use your existing skills in web development (HTML, CSS, and JavaScript) to build powerful mobile apps. Your apps also get the power of integration with native device features like the camera and file system.</p><p>In this bootcamp, you will learn to build apps from the Cordova CLI, how to make use of device features like the camera and accelerometer, and how to submit your apps to Google Play Store / Apple App Store.</p>",
+        "startDate": "2019-12-20T04:00:00.000Z",
+        "endDate": "2019-12-23T08:00:00.000Z",
+        "startTime": {
+            "hours": 9,
+            "minutes": 30
+        },
+        "endTime": {
+            "hours": 13,
+            "minutes": 30
+        },
+        "speakers": [
+            "John Doe",
+            "Mary Smith"
+        ],
+        "location": {
+            "address": "Nissan Digital, IT Park",
+            "city": "Trivandrum",
+            "state": "Kerala"
+        },
+        "modes": {
+            "inPerson": true,
+            "online": true
+        },
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/9/92/Apache_Cordova_Logo.svg/494px-Apache_Cordova_Logo.svg.png"
+    },
+    {
+        "id": 11,
+        "name": "Practical Git",
+        "category": "devops",
+        "description": "<p><strong>Git</strong> is a distributed Version Control System (VCS) created by Linus Torvalds. It is by far the most popular VCS in use today.</p>",
+        "startDate": "2019-12-28T04:00:00.000Z",
+        "endDate": "2019-12-28T08:00:00.000Z",
+        "startTime": {
+            "hours": 9,
+            "minutes": 0
+        },
+        "endTime": {
+            "hours": 17,
+            "minutes": 0
+        },
+        "speakers": [
+            "John Doe",
+            "Mark Smith"
+        ],
+        "location": {
+            "address": "SAP Labs, Whitefield",
+            "city": "Bangalore",
+            "state": "Karnataka"
+        },
+        "modes": {
+            "inPerson": true,
+            "online": false
+        },
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/512px-Git-logo.svg.png"
+    },
+    {
+        "id": 12,
+        "name": "JavaScript Fundamentals",
+        "category": "language",
+        "description": "<p><strong>JavaScript (JS)</strong> is the language for scripting web pages – to enable user interactions on a web page, communicate with the backend etc.</p><p>The latest versions of JavaScript like ES2015 (ES6) have introduced a plethora of great new features that have found adoption in modern frontend and backend frameworks. A good understanding of JS, especially ES2015 features, lays a strong foundation to get started with frameworks like React and Angular, as also Node.js and Express.</p>",
+        "startDate": "2020-01-08T04:00:00.000Z",
+        "endDate": "2020-01-10T08:00:00.000Z",
+        "startTime": {
+            "hours": 9,
+            "minutes": 0
+        },
+        "endTime": {
+            "hours": 17,
+            "minutes": 0
+        },
+        "speakers": [
+            "Jane Doe",
+            "Mary Smith"
+        ],
+        "location": {
+            "address": "SAP Labs, Whitefield",
+            "city": "Bangalore",
+            "state": "Karnataka"
+        },
+        "modes": {
+            "inPerson": true,
+            "online": true
+        },
+        "imageUrl": "https://camo.githubusercontent.com/055e8995558e293e52e92d7c93b9ec49a9ea6c78/68747470733a2f2f63646e2e7261776769742e636f6d2f7a656b652f6a6176617363726970742d79656c6c6f772f6d61737465722f6c6f676f2e737667"
+    }
+]
