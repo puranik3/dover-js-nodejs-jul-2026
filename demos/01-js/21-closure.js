@@ -1,4 +1,5 @@
 // We say a function creates a "closures" -> it "closes upon" / "captures" the variables in its outer function
+// foo is HoF (it returns a function)
 function foo( x ) {
     function bar( y ) {
         console.log( x, y ); // inner function scope includes outer function's variables -> we CAN USE x
