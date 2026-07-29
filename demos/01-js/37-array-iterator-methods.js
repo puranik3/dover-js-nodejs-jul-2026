@@ -233,18 +233,78 @@ const workshops = [
 /**
  * Page 12
  * ---
- * Find all frontend workshops
- * Find all workshops in Bangalore city
- * Find the first workshop available online. How will you find the last workshop available online (one way is to use findLast, but this method is not supported on many mobile browsers)
- * Find the first workshop available in both online and in-person modes
- * Get the number of online workshops
- * Get a list of the imageUrls
- * Get a list of workshops with the following structure
+ * 1. Find all frontend workshops
+ * 2. Find all workshops in Bangalore city
+ * 3. Find the first workshop available online. How will you find the last workshop available online (one way is to use findLast, but this method is not supported on many mobile browsers)
+ * 4. Find the first workshop available in both online and in-person modes
+ * 5. Get the number of online workshops
+ * 6. Get a list of the imageUrls
+ * 7. Get a list of workshops with the following structure
     [
         { name: 'Angular JS Bootcamp', id: 1 },
         { name: 'React JS Masterclass', id: 2 }
         ...
     ]
- * Get a single string which has the names of frontend workshops separated by commas. The result should look like so (use filter along with join)
+ * 8. Get a single string which has the names of frontend workshops separated by commas. The result should look like so (use filter along with join)
     'Angular JS Bootcamp, React JS Masterclass, ...'
  */
+
+// 1. Find all frontend workshops - filter()
+const frontendWorkshops = workshops.filter(
+    ( w ) => w.category === 'frontend'
+);
+
+console.log( frontendWorkshops );
+
+// 2. Find all workshops in Bangalore city
+const bangaloreWorkshops = workshops.filter(
+    w => w.location.city === 'Bangalore'
+);
+console.log( bangaloreWorkshops );
+
+// 3. Find the first workshop available online. How will you find the last workshop available online (one way is to use findLast, but this method is not supported on many mobile browsers)
+// Unlike filter(), find() gives us a single item from the array
+const firstOnlineWorkshop = workshops.find(
+    w => w.modes.online
+);
+console.log( firstOnlineWorkshop );
+
+const lastOnlineWorkshop = workshops.filter(
+     w => w.modes.online
+).pop();
+console.log( lastOnlineWorkshop );
+
+// 6. Get a list of the imageUrls
+// map is ideal when you have an array, and you want to produce another array, where every item, has a corresponding item in the generated array
+const imageUrls = workshops.map(
+    w => w.imageUrl // return what you want to have in the new array
+);
+console.log( imageUrls );
+
+// * 7. Get a list of workshops with the following structure
+    // [
+    //     { name: 'Angular JS Bootcamp', id: 1 },
+    //     { name: 'React JS Masterclass', id: 2 }
+    //     ...
+    // ]
+// Again perfect use case for map()
+// const workshopsBasicDetails = workshops.map(
+//     w => ({
+//         name: w.name,
+//         id: w.id
+//     })
+// );
+const workshopsBasicDetails = workshops.map(
+    w => {
+        return {
+            name: w.name,
+            id: w.id
+        };
+    }
+);
+console.log( workshopsBasicDetails );
+
+// Get a single string which has the names of frontend workshops separated by commas. The result should look like so (use filter along with join)
+    // 'Angular JS Bootcamp, React JS Masterclass, ...'
+const names = workshops.map( w => w.name ).join();
+console.log( names );
