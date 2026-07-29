@@ -229,3 +229,22 @@ const workshops = [
         "imageUrl": "https://camo.githubusercontent.com/055e8995558e293e52e92d7c93b9ec49a9ea6c78/68747470733a2f2f63646e2e7261776769742e636f6d2f7a656b652f6a6176617363726970742d79656c6c6f772f6d61737465722f6c6f676f2e737667"
     }
 ]
+
+/**
+ * Page 12
+ * ---
+ * Find all frontend workshops
+ * Find all workshops in Bangalore city
+ * Find the first workshop available online. How will you find the last workshop available online (one way is to use findLast, but this method is not supported on many mobile browsers)
+ * Find the first workshop available in both online and in-person modes
+ * Get the number of online workshops
+ * Get a list of the imageUrls
+ * Get a list of workshops with the following structure
+    [
+        { name: 'Angular JS Bootcamp', id: 1 },
+        { name: 'React JS Masterclass', id: 2 }
+        ...
+    ]
+ * Get a single string which has the names of frontend workshops separated by commas. The result should look like so (use filter along with join)
+    'Angular JS Bootcamp, React JS Masterclass, ...'
+ */
