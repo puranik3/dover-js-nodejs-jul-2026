@@ -9,7 +9,10 @@ const darshan = {
 
 const darshanEmployment = {
     company: 'Dover',
-    project: 'Portal 2.0'
+    project: 'Portal 2.0',
+    emails: [
+        'darshan@dover.com'
+    ]
 };
 
 // different copy of name, age, company, project
@@ -17,6 +20,17 @@ const darshanEmployment = {
 const darshanMasterDetails = {
     ...darshan,
     ...darshanEmployment
+};
+
+console.log( 'darshanMasterDetails = ', darshanMasterDetails ); // email from darshanCompany object
+
+const darshanMasterDetails = {
+    ...darshan,
+    ...darshanEmployment,
+    emails: [
+        ...darshan.emails,
+        ...darshanEmployment.emails
+    ]
 };
 
 ++darshanMasterDetails.age; // DOES not affect darshan
