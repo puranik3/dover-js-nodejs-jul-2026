@@ -24,7 +24,7 @@ const darshanMasterDetails = {
 
 console.log( 'darshanMasterDetails = ', darshanMasterDetails ); // email from darshanCompany object
 
-const darshanMasterDetails = {
+const darshanMasterDetailsDeepCopy = {
     ...darshan,
     ...darshanEmployment,
     emails: [
@@ -39,5 +39,6 @@ const darshanMasterDetails = {
 darshanMasterDetails.emails[0] = 'darshan123@gmail.com'; // affects darshan
 
 console.log( 'darshanMasterDetails = ', darshanMasterDetails );
+console.log( 'darshanMasterDetailsDeepCopy = ', darshanMasterDetailsDeepCopy );
 
 console.log( 'darshan = ', darshan ); // age -> SAME, i.e. 21, emails[0] -> CHANGED
