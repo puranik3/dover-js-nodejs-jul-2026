@@ -51,7 +51,12 @@ const iPhone11 = {
 
 const {
     price,
-    name
+    name,
+    specs: {
+        memory: {
+            value
+        }
+    }
 } = iPhone11;
 
-console.log( name, price );
+console.log( name, price, value );
