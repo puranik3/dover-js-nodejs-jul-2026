@@ -23,4 +23,4 @@ const payroll = {
 
 payroll.raise();
 
-‸console.log(payroll.employees);
+console.log(payroll.employees);
