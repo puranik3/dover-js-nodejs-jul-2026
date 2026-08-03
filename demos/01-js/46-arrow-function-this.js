@@ -12,12 +12,18 @@ const payroll = {
         Finance: 20
     },
     raise: function () {
-        this.employees.forEach(function (employee) {
-            const dept = employee.dept;
-            const salary = employee.salary;
-            const hikePercentage = this.hikePercentage[dept];
-            employee.salary = ((100 + hikePercentage) / 100) * salary;
-        });
+        console.log( 'raise this = ', this ); // payroll
+
+        this.employees.forEach(
+            (employee) => { // we changed to arrow function to preserve "this"
+                console.log( 'inner function this = ', this ); // now refers to payroll object
+
+                const dept = employee.dept;
+                const salary = employee.salary;
+                const hikePercentage = this.hikePercentage[dept];
+                employee.salary = ((100 + hikePercentage) / 100) * salary;
+            }
+        );
     }
 }
 
