@@ -1,5 +1,8 @@
 # JavaScript
 
+## References:
+- [Master the JavaScript Interview: What is a Promise?, Eric Elliott](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261)
+
 ## Overview
 - Brief history of ECMAScript (JS language specification)
 - Features introduced in various versions
