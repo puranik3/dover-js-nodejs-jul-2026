@@ -1,0 +1,21 @@
+{
+  "name": "02-node",
+  "version": "1.0.0",
+  "description": "My simple web server and Node tryouts",
+  "main": "01-simple-web-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .",
+    "list-files": "ls -al"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "lodash": "^4.18.1"
+  },
+  "devDependencies": {
+    "mocha": "^11.8.0"
+  }
+}

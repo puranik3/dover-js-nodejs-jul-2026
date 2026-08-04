@@ -1,7 +1,8 @@
 // CommonJS module specification
 // const http = require('http')
 // The HTTP server is an "event emitter" (a base class called EventEmitter)
-const http = require('node:http');
+// const http = require('node:http');
+import http from 'node:http';
 
 const server = http.createServer(
     // a function that will be called when an HTTP request comes in
