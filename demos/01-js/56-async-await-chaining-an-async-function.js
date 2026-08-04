@@ -48,7 +48,6 @@ doAll()
         console.log( finalResult );
     });
 
-
 console.log( 'Other code continues executing...' );
 console.log(4);
 
