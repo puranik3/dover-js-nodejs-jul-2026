@@ -9,7 +9,7 @@ const readmeFilePath = path.join('../..', 'README.md');
 fs.readFile(
     readmeFilePath,
     { encoding: 'utf-8' },
-    ( error, contents ) => {
+    ( error, content ) => { // Error-first callback
         // case 1. error
         if ( error ) {
             console.log( error.message );
