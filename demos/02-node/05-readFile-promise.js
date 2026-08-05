@@ -3,14 +3,14 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 // safe path constructions across platforms
-const readmeFilePath = path.join('../..', 'READM.md');
+const readmeFilePath = path.join('../..', 'README.md');
 
 // async non-blocking
 // (fn_expression)() -> IIFE syntax - defines and calls the function immediately
 (async () => {
     try {
         console.log( '---' );
-        
+
         const contents = await fs.readFile(
             readmeFilePath,
             { encoding: 'utf-8' }
