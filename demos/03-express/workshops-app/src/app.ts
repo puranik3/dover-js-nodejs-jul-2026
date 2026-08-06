@@ -7,7 +7,7 @@ import express from 'express';
 const app = express();
 
 app.get('/', (req, res) => {
-    res.write('This is the workshops app. It serves details of workshops happening nearby.');
+    res.write('This is the workshops app. It serves details of workshops happening nearby!!!!');
     res.end();
 });
 

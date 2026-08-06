@@ -6,7 +6,7 @@
     "scripts": {
         "build": "tsc",
         "build:watch": "tsc --watch",
-        "start": "node ."
+        "start": "nodemon"
     },
     "keywords": [],
     "author": "Prashanth Puranik",
