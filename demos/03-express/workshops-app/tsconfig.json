@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "es2022", // Controls the JavaScript language version (ECMAScript features) that TypeScript will compile your code down to - we are using here modern JS output es2022 (Node 20 supports it)
+        "module": "commonjs", // the module system for the compiled JS - easier to run with Node
+        "rootDir": "./src", // TS source files
+        "outDir": "./dist", // compiled JS
+        "esModuleInterop": true, // allow default imports for CJS modules
+        "resolveJsonModule": true, // allow JSON imports
+        "strict": true, // strict type checking
+        "skipLibCheck": true, // skip checking type declaration files
+        "sourceMap": true, // useful for debugging
+        "declaration": true // emit .d.ts files if you want library support
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"]
+}

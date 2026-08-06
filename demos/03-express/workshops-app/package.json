@@ -1,0 +1,24 @@
+{
+    "name": "workshops-app",
+    "version": "1.0.0",
+    "description": "This is an application serving detsils of technical workshops happening in cities nearby",
+    "main": "dist/app.js",
+    "scripts": {
+        "build": "tsc",
+        "build:watch": "tsc --watch",
+        "start": "nodemon"
+    },
+    "keywords": [],
+    "author": "Prashanth Puranik",
+    "license": "ISC",
+    "type": "commonjs",
+    "dependencies": {
+        "express": "^5.2.1"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.6",
+        "@types/node": "^26.1.2",
+        "nodemon": "^3.1.14",
+        "typescript": "^7.0.2"
+    }
+}
