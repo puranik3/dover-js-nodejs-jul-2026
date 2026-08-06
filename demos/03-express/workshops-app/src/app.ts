@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import indexRouter from './routes/index.route';
 
 dotenv.config(); // this is how we read and load the variables from the .env file
 
@@ -6,10 +7,8 @@ import express from 'express';
 
 const app = express();
 
-app.get('/', (req, res) => {
-    res.write('This is the workshops app. It serves details of workshops happening nearby!!!!');
-    res.end();
-});
+// app.use() integrates a middleware with the app
+app.use(indexRouter);
 
 const PORT = process.env.PORT || 3000;
 
