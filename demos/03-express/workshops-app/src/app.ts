@@ -8,6 +8,9 @@ import express from 'express';
 
 const app = express();
 
+// The order of setup of middleware is VERY IMPORTANT
+app.use(express.json());
+
 // app.use() integrates a middleware with the app
 app.use(indexRouter);
 app.use(workshopsRouter);
