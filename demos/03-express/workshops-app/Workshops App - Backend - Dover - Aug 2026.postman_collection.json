@@ -1,0 +1,55 @@
+{
+  "info": {
+    "_postman_id": "b8750437-bce0-4cd9-8f60-e7bc31275f6d",
+    "name": "Workshops App | Backend | Dover | Aug 2026",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "715971"
+  },
+  "item": [
+    {
+      "name": "Get workshops",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://{{API_URL}}/workshops",
+          "protocol": "http",
+          "host": [
+            "{{API_URL}}"
+          ],
+          "path": [
+            "workshops"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create a workshop",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"jQuery\",\n    \"category\": \"frontend\",\n    \"description\": \"jQuery is a JavaScript library\",\n    \"startDate\": \"2020-03-01T04:00:00.000Z\",\n    \"endDate\": \"2020-03-03T08:00:00.000Z\",\n    \"startTime\": {\n        \"hours\": 9,\n        \"minutes\": 30\n    },\n    \"endTime\": {\n        \"hours\": 13,\n        \"minutes\": 30\n    },\n    \"speakers\": [\n        \"John Doe\",\n        \"Jane Doe\"\n    ],\n    \"location\": {\n        \"address\": \"Tata Elxsi, Prestige Shantiniketan\",\n        \"city\": \"Bangalore\",\n        \"state\": \"Karnataka\"\n    },\n    \"modes\": {\n        \"inPerson\": true,\n        \"online\": false\n    },\n    \"imageUrl\": \"https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/JQuery_logo.svg/524px-JQuery_logo.svg.png\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://{{API_URL}}/workshops",
+          "protocol": "http",
+          "host": [
+            "{{API_URL}}"
+          ],
+          "path": [
+            "workshops"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
