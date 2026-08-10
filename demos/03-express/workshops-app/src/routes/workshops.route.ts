@@ -1,5 +1,6 @@
 import express from 'express';
 import Joi from 'joi';
+import { ErrorWithStatus } from '../models/util';
 
 // You can import JSON file!
 import workshops from '../data/workshops.json';
@@ -52,10 +53,15 @@ router
 
         // Check if body is sent and not empty
         if (!newWorkshop || Object.keys(newWorkshop).length === 0) {
-            return res.status(400).json({
-                status: 'error',
-                message: 'The request body is empty. Workshop object expected.',
-            });
+            // return res.status(400).json({
+            //     status: 'error',
+            //     message: 'The request body is empty. Workshop object expected.',
+            // });
+            const err: ErrorWithStatus = new Error(
+                'The request body is empty. Workshop object expected.'
+            );
+            err.status = 400;
+            throw err;
         }
 
         // Validate using Joi
@@ -65,11 +71,9 @@ router
         });
 
         if (error) {
-            return res.status(400).json({
-                status: 'error',
-                message: 'Validation failed',
-                details: error.details.map((err) => err.message),
-            });
+            const err: any = new Error((error as any).details.map((d) => d.message));
+            err.status = 400;
+            throw err;
         }
 
         newWorkshop.id = nextId++;
