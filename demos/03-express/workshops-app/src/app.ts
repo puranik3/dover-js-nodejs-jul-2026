@@ -8,11 +8,32 @@ import express from 'express';
 
 const app = express();
 
+// 1. Middleware are functions
+// 2. They are called every time a request is received
+// 3. They are executed in the order they are passed to app.use()
+app.use((req, res, next) => {
+    console.log('middleware 1 called');
+    const requestDate = new Date();
+
+    next(); // now Express knows we are done processing the request
+
+    console.log('middleware 1 after call to next');
+    const responseDate = new Date();
+
+    console.log('Time for processing (in ms) = ', responseDate.getTime() - requestDate.getTime());
+});
+
 // The order of setup of middleware is VERY IMPORTANT
 app.use(express.json());
 
 // app.use() integrates a middleware with the app
 app.use(indexRouter);
+
+app.use((req, res, next) => {
+    console.log('middleware after indeRouter');
+    next(); // VERY IMPORTANT -> Otherwise request will be stuck on this line
+    console.log('Response is going out from middleware after indexRouter');
+});
 
 // This router handles only requests starting with '/workshops'
 app.use('/api/workshops', workshopsRouter);
