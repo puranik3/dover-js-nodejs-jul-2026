@@ -13,7 +13,9 @@ app.use(express.json());
 
 // app.use() integrates a middleware with the app
 app.use(indexRouter);
-app.use(workshopsRouter);
+
+// This router handles only requests starting with '/workshops'
+app.use('/api/workshops', workshopsRouter);
 
 const PORT = process.env.PORT || 3000;
 
