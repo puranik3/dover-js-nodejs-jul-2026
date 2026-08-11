@@ -1,41 +1,44 @@
 import Workshop from '../data/models/Workshop';
 import IWorkshop from '../models/IWorkshop';
-import { ErrorWithStatus } from '../models/utils';
-import { ValidationError, UniqueConstraintError } from 'sequelize';
 
-import workshops from '../data/workshops.json';
+import { WhereOptions, OrderItem } from 'sequelize';
 
-let nextId = 13;
+const getAllWorkshops = async (page: number, sortField: string = '', category = '') => {
+    const limit = 10;
+    const offset = limit * (page - 1);
 
-const getAllWorkshops = async () => {
-    // const workshops = await Workshop.findAll();
-    return workshops;
+    const where: WhereOptions = {};
+
+    if (category) {
+        where.category = category;
+    }
+
+    // Build the ORDER BY clause if sortField is provided
+    let order: OrderItem[] | undefined = undefined;
+    if (sortField) {
+        order = [[sortField, 'ASC']];
+    }
+
+    const { rows: workshops, count } = await Workshop.findAndCountAll({
+        where,
+        // We can either blacklist or whitelist fields. Here we blacklist (i.e. omit certain fields)
+        attributes: {
+            exclude: ['description'],
+        },
+        limit,
+        offset,
+        order,
+    });
+
+    return {
+        workshops,
+        count,
+    };
 };
 
 const addWorkshop = async (workshop: Omit<IWorkshop, 'id'>) => {
-    try {
-        // const insertedWorkshop = await Workshop.create(workshop);
-        // return insertedWorkshop;
-
-        const insertedWorkshop: any = { ...workshop };
-
-        insertedWorkshop.id = nextId++;
-        workshops.push(insertedWorkshop);
-    } catch (err) {
-        const error = err as ErrorWithStatus;
-
-        if (err instanceof UniqueConstraintError) {
-            error.type = 'ValidationError';
-            error.status = 400;
-        }
-
-        if (err instanceof ValidationError) {
-            error.type = 'ValidationError';
-            error.status = 400;
-        }
-
-        throw error;
-    }
+    const insertedWorkshop = await Workshop.create(workshop);
+    return insertedWorkshop;
 };
 
 export { getAllWorkshops, addWorkshop };
