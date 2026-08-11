@@ -89,4 +89,30 @@ const deleteWorkshop = async (id: number) => {
     return;
 };
 
-export { getAllWorkshops, addWorkshop, getWorkshopById, updateWorkshop, deleteWorkshop };
+const addSpeakers = async (id: number, speakers: string[]) => {
+    const workshop = await Workshop.findByPk(id);
+
+    if (workshop === null) {
+        const error: ErrorWithStatus = new Error('No such workshop');
+        error.type = 'NotFound';
+        throw error;
+    }
+
+    // Merge existing and new speakers, ensuring uniqueness (like $addToSet)
+    const existing = workshop.getDataValue('speakers') || [];
+    const merged = Array.from(new Set([...existing, ...speakers]));
+
+    workshop.set('speakers', merged);
+    await workshop.save();
+
+    return workshop;
+};
+
+export {
+    getAllWorkshops,
+    addWorkshop,
+    getWorkshopById,
+    updateWorkshop,
+    deleteWorkshop,
+    addSpeakers,
+};

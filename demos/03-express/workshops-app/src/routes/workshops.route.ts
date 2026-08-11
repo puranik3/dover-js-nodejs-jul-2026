@@ -11,4 +11,6 @@ router
     .patch(Controllers.patchWorkshop)
     .delete(Controllers.deleteWorkshop);
 
+router.route('/:id/speakers').patch(Controllers.addSpeakers);
+
 export default router;

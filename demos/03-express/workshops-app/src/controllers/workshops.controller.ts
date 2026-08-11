@@ -139,4 +139,42 @@ const deleteWorkshop = async (req: Request<WorkshopIdParams>, res: Response) => 
     });
 };
 
-export { getWorkshops, postWorkshop, getWorkshopById, patchWorkshop, deleteWorkshop };
+interface WorkshopIdParams {
+    id: string;
+}
+
+// http://localhost:3000/api/workshops/:id/speakers
+// body -> [
+//     "john.doe@example.com",
+//     "jane.doe@example.com"
+// ]
+const addSpeakers = async (req: Request<WorkshopIdParams, {}, string[]>, res: Response) => {
+    const { id } = req.params;
+    const workshopId = +id;
+
+    if (isNaN(workshopId)) {
+        const err = new Error('Workshop id should be a number') as ErrorWithStatus;
+        err.status = 400;
+        err.type = 'ValidationError';
+        throw err;
+    }
+
+    const speakers = req.body;
+
+    if (!(speakers instanceof Array) || speakers.length === 0) {
+        const error: ErrorWithStatus = new Error(
+            'Speakers must be a non-empty array. Data is missing or formed incorrectly'
+        );
+        error.status = 400;
+        error.type = 'ValidationError';
+        throw error;
+    }
+
+    const updatedWorkshop = await Service.addSpeakers(workshopId, speakers);
+    res.json({
+        status: 'success',
+        data: updatedWorkshop,
+    });
+};
+
+export { getWorkshops, postWorkshop, getWorkshopById, patchWorkshop, deleteWorkshop, addSpeakers };
