@@ -6,6 +6,8 @@ import { ErrorWithStatus } from '../models/util';
 // You can import JSON file!
 import workshops from '../data/workshops.json';
 
+import { getAllWorkshops, addWorkshop } from '../services/workshops.service';
+
 // set up the Joi schema for validation
 const timeSchema = Joi.object({
     hours: Joi.number().integer().min(0).max(23).required(),
@@ -35,11 +37,11 @@ const workshopSchema = Joi.object({
     imageUrl: Joi.string().uri().required(),
 });
 
-let nextId = 13;
-
-const getWorkshops: Controller = (req, res) => {
+const getWorkshops: Controller = async (req, res) => {
     // status(), json(), redirect(), send(), sendFile() are added onto the Node JS response object
     // Content-Type HTTP header conveys the MIME type (format) of the data
+    const workshops = await getAllWorkshops();
+
     res.json({
         status: 'success',
         data: workshops,
@@ -47,42 +49,42 @@ const getWorkshops: Controller = (req, res) => {
 };
 
 const postWorkshop: Controller = (req, res) => {
-   
-        const newWorkshop = req.body;
+    const newWorkshop = req.body;
 
-        // Check if body is sent and not empty
-        if (!newWorkshop || Object.keys(newWorkshop).length === 0) {
-            // return res.status(400).json({
-            //     status: 'error',
-            //     message: 'The request body is empty. Workshop object expected.',
-            // });
-            const err: ErrorWithStatus = new Error(
-                'The request body is empty. Workshop object expected.'
-            );
-            err.status = 400;
-            throw err;
-        }
+    // Check if body is sent and not empty
+    if (!newWorkshop || Object.keys(newWorkshop).length === 0) {
+        // return res.status(400).json({
+        //     status: 'error',
+        //     message: 'The request body is empty. Workshop object expected.',
+        // });
+        const err: ErrorWithStatus = new Error(
+            'The request body is empty. Workshop object expected.'
+        );
+        err.status = 400;
+        throw err;
+    }
 
-        // Validate using Joi
-        const { error, value } = workshopSchema.validate(newWorkshop, {
-            abortEarly: false,
-            convert: false,
-        });
+    // Validate using Joi
+    const { error, value } = workshopSchema.validate(newWorkshop, {
+        abortEarly: false,
+        convert: false,
+    });
 
-        if (error) {
-            const err: any = new Error((error as any).details.map((d) => d.message));
-            err.status = 400;
-            throw err;
-        }
+    if (error) {
+        const err: any = new Error((error as any).details.map((d) => d.message));
+        err.status = 400;
+        throw err;
+    }
 
-        newWorkshop.id = nextId++;
-        workshops.push(newWorkshop);
+    // newWorkshop.id = nextId++;
+    // workshops.push(newWorkshop);
 
-        res.status(201).json({
-            status: 'success',
-            data: newWorkshop,
-        });
-    };
+    const insertedWorkshop = addWorkshop(newWorkshop);
+
+    res.status(201).json({
+        status: 'success',
+        data: insertedWorkshop,
+    });
 };
 
 export { getWorkshops, postWorkshop };

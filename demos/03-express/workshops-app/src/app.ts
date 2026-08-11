@@ -3,6 +3,8 @@ import indexRouter from './routes/index.route';
 import workshopsRouter from './routes/workshops.route';
 import { Request, Response, NextFunction } from 'express';
 
+import './data/init';
+
 dotenv.config(); // this is how we read and load the variables from the .env file
 
 import express from 'express';
