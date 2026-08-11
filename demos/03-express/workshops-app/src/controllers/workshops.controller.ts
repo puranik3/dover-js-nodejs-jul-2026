@@ -71,7 +71,7 @@ const postWorkshop: Controller = (req, res) => {
     });
 
     if (error) {
-        const err: any = new Error((error as any).details.map((d) => d.message));
+        const err: any = new Error((error as any).details.map((d: any) => d.message));
         err.status = 400;
         throw err;
     }

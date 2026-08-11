@@ -17,6 +17,9 @@ export const sequelize = new Sequelize(connectionStr, {
     logging: false, // disable SQL logging (optional)
 });
 
+// register models
+import './models/Workshop';
+
 const connect = async () => {
     try {
         await sequelize.authenticate();

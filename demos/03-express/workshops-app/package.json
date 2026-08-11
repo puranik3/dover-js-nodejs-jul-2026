@@ -4,15 +4,19 @@
     "description": "This is an application serving detsils of technical workshops happening in cities nearby",
     "main": "dist/app.js",
     "scripts": {
-        "build": "tsc",
-        "build:watch": "tsc --watch",
-        "start": "nodemon"
+        "build": "cpx \"src/data/seed/workshops.json\" dist/data/seed && tsc",
+        "build:watch": "cpx \"src/data/seed/workshops.json\" dist/data/seed && tsc --watch",
+        "start": "nodemon",
+        "db:migrate": "npx sequelize-cli db:migrate",
+        "db:seed:workshops": "node dist/data/seed/seed-workshops.js",
+        "start:seed": "npm run build && npm run db:migrate && npm run db:seed:workshops && npm start"
     },
     "keywords": [],
     "author": "Prashanth Puranik",
     "license": "ISC",
     "type": "commonjs",
     "dependencies": {
+        "cpx": "^1.5.0",
         "dotenv": "^17.4.2",
         "express": "^5.2.1",
         "joi": "^18.2.3",
