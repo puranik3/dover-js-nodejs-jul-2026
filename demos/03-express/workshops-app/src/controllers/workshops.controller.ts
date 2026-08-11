@@ -113,4 +113,30 @@ const patchWorkshop = async (
     });
 };
 
-export { getWorkshops, postWorkshop, getWorkshopById, patchWorkshop };
+interface WorkshopIdParams {
+    id: string;
+}
+
+const deleteWorkshop = async (req: Request<WorkshopIdParams>, res: Response) => {
+    const { id } = req.params;
+
+    const workshopId = +id;
+
+    if (isNaN(workshopId)) {
+        const err = new Error('Workshop id should be a number') as ErrorWithStatus;
+        err.status = 400;
+        err.type = 'ValidationError';
+        throw err;
+    }
+
+    await Service.deleteWorkshop(workshopId);
+
+    // 204 -> use this status code for successful operation but you do not want to send any data in response
+    // res.status(204).end();
+
+    res.json({
+        status: 'success',
+    });
+};
+
+export { getWorkshops, postWorkshop, getWorkshopById, patchWorkshop, deleteWorkshop };

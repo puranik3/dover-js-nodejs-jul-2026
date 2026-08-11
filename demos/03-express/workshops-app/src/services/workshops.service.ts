@@ -75,4 +75,18 @@ const updateWorkshop = async (id: number, workshop: Partial<IWorkshop>) => {
     return updatedWorkshop;
 };
 
-export { getAllWorkshops, addWorkshop, getWorkshopById, updateWorkshop };
+const deleteWorkshop = async (id: number) => {
+    const deletedCount = await Workshop.destroy({
+        where: { id },
+    });
+
+    if (deletedCount === 0) {
+        const error: ErrorWithStatus = new Error('No such workshop');
+        error.type = 'NotFound';
+        throw error;
+    }
+
+    return;
+};
+
+export { getAllWorkshops, addWorkshop, getWorkshopById, updateWorkshop, deleteWorkshop };
