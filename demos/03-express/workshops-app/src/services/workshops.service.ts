@@ -3,6 +3,18 @@ import IWorkshop from '../models/IWorkshop';
 
 import { WhereOptions, OrderItem } from 'sequelize';
 
+import { ErrorWithStatus, NotFoundError } from '../models/utils';
+
+const getWorkshopById = async (id: number) => {
+    const workshop = await Workshop.findByPk(id);
+
+    if (workshop === null) {
+        throw new NotFoundError('No such workshop');
+    }
+
+    return workshop;
+};
+
 const getAllWorkshops = async (page: number, sortField: string = '', category = '') => {
     const limit = 10;
     const offset = limit * (page - 1);
@@ -41,4 +53,4 @@ const addWorkshop = async (workshop: Omit<IWorkshop, 'id'>) => {
     return insertedWorkshop;
 };
 
-export { getAllWorkshops, addWorkshop };
+export { getAllWorkshops, addWorkshop, getWorkshopById };

@@ -1,7 +1,10 @@
 import express from 'express';
-import { getWorkshops, postWorkshop } from '../controllers/workshops.controller';
+import * as Controllers from '../controllers/workshops.controller';
 const router = express.Router();
 
-router.route('/').get(getWorkshops).post(postWorkshop);
+router.route('/').get(Controllers.getWorkshops).post(Controllers.postWorkshop);
+
+// Add this...
+router.route('/:id').get(Controllers.getWorkshopById);
 
 export default router;

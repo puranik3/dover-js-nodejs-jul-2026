@@ -1,5 +1,6 @@
 import { Controller, ErrorWithStatus } from '../models/utils';
 import * as Service from '../services/workshops.service';
+import { Request, Response } from 'express';
 
 // http://localhost:3000/api/workshops
 // http://localhost:3000/api/workshops?page=1&sort=name&category=frontend
@@ -49,4 +50,29 @@ const postWorkshop: Controller = async (req, res) => {
     });
 };
 
-export { getWorkshops, postWorkshop };
+interface WorkshopIdParams {
+    id: string;
+}
+
+// http://localhost:3000/api/workshops/:id
+const getWorkshopById = async (req: Request<WorkshopIdParams>, res: Response) => {
+    const { id } = req.params;
+
+    const workshopId = +id;
+
+    if (isNaN(workshopId)) {
+        const err = new Error('Workshop id should be a number') as ErrorWithStatus;
+        err.status = 400;
+        err.type = 'ValidationError';
+        throw err;
+    }
+
+    const workshop = await Service.getWorkshopById(workshopId);
+
+    res.json({
+        status: 'success',
+        data: workshop,
+    });
+};
+
+export { getWorkshops, postWorkshop, getWorkshopById };
