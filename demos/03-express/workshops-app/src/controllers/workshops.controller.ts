@@ -1,6 +1,7 @@
 import { Controller, ErrorWithStatus } from '../models/utils';
 import * as Service from '../services/workshops.service';
 import { Request, Response } from 'express';
+import IWorkshop from '../models/IWorkshop';
 
 // http://localhost:3000/api/workshops
 // http://localhost:3000/api/workshops?page=1&sort=name&category=frontend
@@ -75,4 +76,41 @@ const getWorkshopById = async (req: Request<WorkshopIdParams>, res: Response) =>
     });
 };
 
-export { getWorkshops, postWorkshop, getWorkshopById };
+interface WorkshopIdParams {
+    id: string;
+}
+
+const patchWorkshop = async (
+    req: Request<WorkshopIdParams, {}, Partial<IWorkshop>>,
+    res: Response
+) => {
+    const { id } = req.params;
+
+    const workshopId = +id;
+
+    if (isNaN(workshopId)) {
+        const err = new Error('Workshop id should be a number') as ErrorWithStatus;
+        err.status = 400;
+        err.type = 'ValidationError';
+        throw err;
+    }
+
+    const workshop = req.body;
+
+    // if workshop = req.body -> {}
+    if (Object.keys(workshop).length === 0) {
+        const err = new Error(
+            'The request body is empty. A partial Workshop object expected.'
+        ) as ErrorWithStatus;
+        err.status = 400;
+        throw err;
+    }
+
+    const updatedWorkshop = await Service.updateWorkshop(workshopId, workshop);
+    res.json({
+        status: 'success',
+        data: updatedWorkshop,
+    });
+};
+
+export { getWorkshops, postWorkshop, getWorkshopById, patchWorkshop };

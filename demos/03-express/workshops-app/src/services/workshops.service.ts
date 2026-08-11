@@ -53,4 +53,26 @@ const addWorkshop = async (workshop: Omit<IWorkshop, 'id'>) => {
     return insertedWorkshop;
 };
 
-export { getAllWorkshops, addWorkshop, getWorkshopById };
+const updateWorkshop = async (id: number, workshop: Partial<IWorkshop>) => {
+    // NOTES
+    // ---
+    // 1. In Sequelize, we pass the fields to update as a plain object.
+    //    Only the provided fields are updated (similar to PATCH semantics).
+    // 2. Sequelize runs validations on update by default based on the model definitions.
+    // 3. update() returns the number of affected rows. To return the updated record, we fetch it again.
+    const [affectedCount] = await Workshop.update(workshop, {
+        where: { id },
+    });
+
+    if (affectedCount === 0) {
+        const error: ErrorWithStatus = new Error('No such workshop');
+        error.type = 'NotFound';
+        throw error;
+    }
+
+    const updatedWorkshop = await Workshop.findByPk(id);
+
+    return updatedWorkshop;
+};
+
+export { getAllWorkshops, addWorkshop, getWorkshopById, updateWorkshop };
