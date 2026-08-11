@@ -1,7 +1,7 @@
-import { Controller } from '../models/util';
+import { Controller } from '../models/utils';
 
 import Joi from 'joi';
-import { ErrorWithStatus } from '../models/util';
+import { ErrorWithStatus } from '../models/utils';
 
 // You can import JSON file!
 import workshops from '../data/workshops.json';

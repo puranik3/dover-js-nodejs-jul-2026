@@ -1,6 +1,6 @@
 import Workshop from '../data/models/Workshop';
 import IWorkshop from '../models/IWorkshop';
-import { ErrorWithStatus } from '../models/util';
+import { ErrorWithStatus } from '../models/utils';
 import { ValidationError, UniqueConstraintError } from 'sequelize';
 
 import workshops from '../data/workshops.json';

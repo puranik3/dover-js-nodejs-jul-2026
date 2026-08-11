@@ -8,7 +8,7 @@ import './data/init';
 dotenv.config(); // this is how we read and load the variables from the .env file
 
 import express from 'express';
-import { ErrorWithStatus } from './models/util';
+import { ErrorWithStatus } from './models/utils';
 
 const app = express();
 
