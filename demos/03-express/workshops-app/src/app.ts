@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import indexRouter from './routes/index.route';
 import workshopsRouter from './routes/workshops.route';
+import sessionsRouter from './routes/sessions.route';
 
 import './data/init';
 
@@ -42,6 +43,7 @@ app.use((req, res, next) => {
 
 // This router handles only requests starting with '/workshops'
 app.use('/api/workshops', workshopsRouter);
+app.use('/api/sessions', sessionsRouter);
 
 // 404 middleware - ADD IT AS THE LAST MIDDLEWARE
 app.use(resourceNotFoundHandler);

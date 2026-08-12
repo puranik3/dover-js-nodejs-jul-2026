@@ -19,6 +19,7 @@ export const sequelize = new Sequelize(connectionStr, {
 
 // register models
 import './models/Workshop';
+import './models/Session';
 
 const connect = async () => {
     try {
