@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import indexRouter from './routes/index.route';
 import workshopsRouter from './routes/workshops.route';
 import sessionsRouter from './routes/sessions.route';
+import usersRouter from './routes/users.route';
 
 import './data/init';
 
@@ -41,6 +42,7 @@ app.use((req, res, next) => {
     console.log('Response is going out from middleware after indexRouter');
 });
 
+app.use('/api/auth', usersRouter);
 // This router handles only requests starting with '/workshops'
 app.use('/api/workshops', workshopsRouter);
 app.use('/api/sessions', sessionsRouter);
