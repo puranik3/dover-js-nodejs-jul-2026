@@ -13,4 +13,6 @@ router
 
 router.route('/:id/speakers').patch(Controllers.addSpeakers);
 
+router.route('/:id/sessions').post(Controllers.postSession);
+
 export default router;

@@ -3,6 +3,9 @@ import * as Service from '../services/workshops.service';
 import { Request, Response } from 'express';
 import IWorkshop from '../models/IWorkshop';
 
+import * as SessionsService from '../services/sessions.service';
+import ISession from '../models/ISession';
+
 // http://localhost:3000/api/workshops
 // http://localhost:3000/api/workshops?page=1&sort=name&category=frontend
 // http://localhost:3000/api/workshops?sort=name&category=frontend
@@ -177,4 +180,40 @@ const addSpeakers = async (req: Request<WorkshopIdParams, {}, string[]>, res: Re
     });
 };
 
-export { getWorkshops, postWorkshop, getWorkshopById, patchWorkshop, deleteWorkshop, addSpeakers };
+const postSession = async (
+    req: Request<WorkshopIdParams, {}, Omit<ISession, 'id' | 'workshopId'>>,
+    res: Response
+) => {
+    const { id } = req.params;
+
+    const workshopId = +id;
+
+    if (isNaN(workshopId)) {
+        const err = new Error('Workshop id should be a number') as ErrorWithStatus;
+        err.status = 400;
+        err.type = 'ValidationError';
+        throw err;
+    }
+
+    const session = {
+        workshopId,
+        ...req.body,
+    };
+
+    const newSession = await SessionsService.addSession(session);
+
+    res.status(201).json({
+        status: 'success',
+        data: newSession,
+    });
+};
+
+export {
+    getWorkshops,
+    postWorkshop,
+    getWorkshopById,
+    patchWorkshop,
+    deleteWorkshop,
+    addSpeakers,
+    postSession,
+};
